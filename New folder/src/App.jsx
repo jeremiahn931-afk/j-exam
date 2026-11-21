@@ -63,7 +63,7 @@ function App(){
   setPage('result');
  }
  const total=useMemo(()=>editing?.questions?.reduce((a,q)=>a+Number(q.points||1),0)||0,[editing]);
- function newExam(){setEditing({title:'',description:'',duration_minutes:30,access_code:Math.random().toString(36).slice(2,8).toUpperCase(),published:false,questions:[blankQ()]})}
+ function newExam(){setEditing({title:'',description:'',duration_minutes:30,access_code:Math.random().toString(36).slice(2,8).toUpperCase(),published:false,questions:[blankQ()]});setPage('edit')}
  const isAdmin=page==='admin'||page==='edit';
  return <div className="app">
   <header className="top"><div className="brand"><div className="brandmark"><BookOpen size={22}/></div><div><b>J-EXAM</b><small>ONLINE EXAMINATION SYSTEM</small></div></div><div className="topright">{session?<><span className="adminpill"><ShieldCheck size={14}/> Teacher</span><button className="iconbtn" onClick={signOut}><LogOut size={17}/></button></>:<button className="textbtn" onClick={()=>setPage('login')}>Teacher login <ArrowRight size={15}/></button>}</div></header>
